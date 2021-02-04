@@ -17,9 +17,25 @@ const SearchPage = () => {
       .catch((error) => {});
   };
 
+  useEffect(() => {
+    if (search) {
+      fetchData();
+    }
+  }, [search]);
+
+  useEffect(() => {
+    const saveFavourites = JSON.parse(localStorage.getItem("Testter"));
+    setFavourites(saveFavourites);
+  }, []);
+
+  const saveLocalStorage = (data) => {
+    localStorage.setItem("Testter", JSON.stringify(data));
+  };
+
   const addFavourites = (data) => {
     const favouriteList = [...favourites, data];
     setFavourites(favouriteList);
+    saveLocalStorage(favouriteList);
   };
 
   const removeFavourites = (movie) => {
@@ -27,13 +43,8 @@ const SearchPage = () => {
       (data) => data.imdbID !== movie.imdbID
     );
     setFavourites(favouriteList);
+    saveLocalStorage(favouriteList);
   };
-
-  useEffect(() => {
-    if (search) {
-      fetchData();
-    }
-  }, [search]);
 
   return (
     <>

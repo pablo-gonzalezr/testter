@@ -8,7 +8,7 @@ const Favourites = ({ favouritesList, removeFavourites }) => {
         return (
           <div>
             <h2>{data.Title}</h2>
-            <img src={data.Poster} alt="Poster Pelicula" />;
+            <img src={data.Poster} alt="Poster Pelicula" />
             <button
               onClick={() => {
                 removeFavourites(data);
