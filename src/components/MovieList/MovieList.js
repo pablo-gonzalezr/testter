@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import Navbar from "../Navbar/Navbar";
 
-const MovieList = ({ movieList = [] }) => {
-  const [favourites, setFavourites] = useState([]);
+const MovieList = ({ movieList = [], favourites, favouritesList }) => {
+  // const [favourites, setFavourites] = useState([]);
 
-  const addFavourites = (data) => {
-    const favouriteList = [...favourites, data];
-    setFavourites(favouriteList);
-  };
+  // const addFavourites = (data) => {
+  //   const favouriteList = [...favourites, data];
+  //   setFavourites(favouriteList);
+  // };
 
   return (
     <>
@@ -28,30 +27,19 @@ const MovieList = ({ movieList = [] }) => {
                 {poster()}
                 <button
                   onClick={() => {
-                    addFavourites(data);
+                    favourites(data);
                   }}
                 >
-                  Consola ID & favoritos
+                  A favoritos
                 </button>
-                <button
+                {/* <button
                   className="btn btn-secondary"
                   data-toggle="tooltip"
                   data-placement="top"
                   title={data.Title}
                 >
                   Tooltip on top
-                </button>
-              </div>
-              <div>
-                <button
-                  onClick={() =>
-                    favourites.map((data) => {
-                      console.log(data.Title);
-                    })
-                  }
-                >
-                  Favoritos
-                </button>
+                </button> */}
               </div>
             </div>
           );
