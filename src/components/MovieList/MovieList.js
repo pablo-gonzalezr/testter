@@ -1,46 +1,51 @@
-import React, { useState } from "react";
+import React from "react";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
 
-const MovieList = ({ movieList = [], favourites, favouritesList }) => {
-  // const [favourites, setFavourites] = useState([]);
+const MovieList = ({ movieList = [], favourites, favouritesList = [] }) => {
+  const favouriteCheck = (row) => {
+    let component = (
+      <button
+        className="btn btn-primary"
+        onClick={() => {
+          favourites(row);
+        }}
+      >
+        A favoritos
+      </button>
+    );
+    if (favouritesList && favouritesList.length) {
+      favouritesList.forEach((favourite) => {
+        if (favourite.imdbID === row.imdbID) {
+          component = <p>ya agregado a favoritos</p>;
+        }
+      });
+    }
 
-  // const addFavourites = (data) => {
-  //   const favouriteList = [...favourites, data];
-  //   setFavourites(favouriteList);
-  // };
+    return component;
+  };
 
   return (
     <>
       {movieList.map((data, key) => {
         if (data) {
-          const poster = () => {
-            if (data.Poster === "N/A") {
-              return <p>No poster</p>;
-            } else {
-              return <img src={data.Poster} alt="Poster Pelicula" />;
-            }
-          };
-
           return (
-            <div>
-              <div key={data.imdbID} className="">
-                <h1>{data.Title}</h1>
-                {poster()}
-                <button
-                  onClick={() => {
-                    favourites(data);
-                  }}
-                >
-                  A favoritos
-                </button>
-                {/* <button
-                  className="btn btn-secondary"
-                  data-toggle="tooltip"
-                  data-placement="top"
-                  title={data.Title}
-                >
-                  Tooltip on top
-                </button> */}
-              </div>
+            <div key={key} className="mt-4 cardContainer">
+              <Card className="cardStyle">
+                <CardMedia
+                  className="cardImageHeight"
+                  component="img"
+                  alt="Poster Pelicula"
+                  height="400"
+                  image={data.Poster}
+                  title="Poster Pelicula"
+                />
+                <CardContent>
+                  <h5>{data.Title}</h5>
+                  {favouriteCheck(data)}
+                </CardContent>
+              </Card>
             </div>
           );
         }
