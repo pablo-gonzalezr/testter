@@ -19,10 +19,10 @@ const SearchBar = ({ onSearch }) => {
 
         <button
           type="submit"
-          className="btn btn-outline-success my-2 my-sm-0"
+          className="btn btn-outline-success my-sm-0"
           onClick={() => onSearch(searchValue)}
         >
-          Buscar
+          &#x1f50d;
         </button>
       </div>
     </div>

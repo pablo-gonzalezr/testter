@@ -18,7 +18,7 @@ const MovieList = ({ movieList = [], favourites, favouritesList = [] }) => {
     if (favouritesList && favouritesList.length) {
       favouritesList.forEach((favourite) => {
         if (favourite.imdbID === row.imdbID) {
-          component = <p>ya agregado a favoritos</p>;
+          component = <p className="alert alert-info">Ya en Favoritos</p>;
         }
       });
     }

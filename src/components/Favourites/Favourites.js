@@ -27,11 +27,11 @@ const Favourites = () => {
 
   return (
     <>
-      <h3 className="d-flex justify-content-center my-3">Favoritos</h3>
+      <h3 className="d-flex justify-content-center mt-5 h1">Favoritos</h3>
       {favourites.map((data, key) => {
         return (
           <div key={key} className="cmt-4 cardContainer">
-            <Card className="cardStyle">
+            <Card className="cardStyle mt-4">
               <CardMedia
                 className="cardImageHeight"
                 component="img"
