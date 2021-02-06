@@ -9,9 +9,6 @@ const Navbar = () => {
         <Link to="/" className="navbar-brand mr-5">
           Buscador de Peliculas
         </Link>
-        <a class="navbar-brand" href="/testter">
-          Home
-        </a>
         <Link to="/favoritos" className="btn btn-outline-info ml-3">
           Favoritos
         </Link>
